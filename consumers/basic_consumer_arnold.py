@@ -1,5 +1,5 @@
 """
-basic_consumer_case.py
+basic_consumer_arnold.py
 
 Read a log file as it is being written. 
 """
@@ -28,8 +28,9 @@ def process_message(log_file) -> None:
         log_file (str): The path to the log file to read.
     """
     with open(log_file, "r") as file:
-        # Move to the end of the file
-        file.seek(0, os.SEEK_END)
+        # Move to the end of the file(os.SEEK_END is a constant defined in the os module)
+        # os.SEEK_END = 2
+        file.seek(0,2)
         print("Consumer is ready and waiting for a new log message...")
 
         # Use while True loop so the consumer keeps running forever
@@ -39,9 +40,9 @@ def process_message(log_file) -> None:
             line = file.readline()
 
             # If the line is empty, wait for a new log entry
-            if not line:
+            if line=="":
                 # Wait a second for a new log entry
-                delay_seconds = 1
+                delay_seconds = 3
                 time.sleep(delay_seconds)
                 # Keep checking for new log entries
                 continue
@@ -52,9 +53,9 @@ def process_message(log_file) -> None:
             print(f"Consumed log message: {message}")
 
             # monitor and alert on special conditions
-            if "I just loved a movie! It was funny." in message:
-                print(f"ALERT: The special message was found! \n{message}")
-                logger.warning(f"ALERT: The special message was found! \n{message}")
+            if "Cowboys traded Micah Parsons." in message:
+                print(f"TRADE ALERT:Parsons has been traded! \n{message}")
+                logger.warning(f"TRADE ALERT: Traded executed! \n{message}")
 
 
 #####################################
