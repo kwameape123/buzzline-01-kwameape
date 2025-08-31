@@ -48,7 +48,7 @@ def get_message_interval() -> int:
     To use handy functions like this, import the os module 
     from the Python Standard Library (see above).
     """
-    return_value: str = os.getenv("MESSAGE_INTERVAL_SECONDS", 3)
+    return_value: str = os.getenv("MESSAGE_INTERVAL_SECONDS", 5)
     interval: int = int(return_value)
     logger.info(f"Messages will be sent every {interval} seconds.")
     return interval
@@ -59,9 +59,9 @@ def get_message_interval() -> int:
 #####################################
 
 # Define some lists for generating buzz messages
-ADJECTIVES: list = ["amazing", "funny", "boring", "exciting", "weird"]
-ACTIONS: list = ["found", "saw", "tried", "shared", "loved"]
-TOPICS: list = ["a movie", "a meme", "an app", "a trick", "a story"]
+TEAMS: list = ["Cowboys", "Chiefs", "Packers", "Eagles", "Texans"]
+ACTIONS: list = ["acquired", "traded", "signed", "drafted", "released"]
+PLAYERS: list = ["TJ Watt", "Micah Parsons", "Patrick Mahomes", "CD Lamb", "Jordan Love", "Jalen Hurts", "Derrick Henry"]
 
 #####################################
 # Define a function to generate buzz messages
@@ -80,10 +80,10 @@ def generate_messages():
     until we close the window or hit CTRL c (CMD c on Mac/Linux).
     """
     while True:
-        adjective = random.choice(ADJECTIVES)
-        action = random.choice(ACTIONS)
-        topic = random.choice(TOPICS)
-        yield f"I just {action} {topic}! It was {adjective}."
+        teams = random.choice(TEAMS)
+        actions = random.choice(ACTIONS)
+        players = random.choice(PLAYERS)
+        yield f"{teams} {actions} {players}."
 
 
 #####################################
