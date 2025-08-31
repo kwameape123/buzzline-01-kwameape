@@ -1,75 +1,61 @@
-# buzzline-01-case
+# Arnold Atchoe
+# INITIAL STREAMING DATA PROJECT: BUZZLINE MESSAGES.
 
-![Python 3.11](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
+# buzzline-01-arnold
+
 
 This project introduces streaming data. 
-The Python language includes generators - we'll use this feature to generate some streaming buzzline messages. 
-As the code runs, it will continuously update the log file. 
-We'll use a consumer to monitor the log file and alert us when a special message is detected. 
+The Python language includes generators - this feature is used to generate some streaming buzzline messages. 
+As the code runs and produces buzzline messages, it will continuously update the log file. 
+Consumer is used to monitor the log file and alert us when a special message is detected. 
 
-## Task 1. Set Up Your Machine & Sign up for GitHub
+This course made used of **Python 3.13.5**. 
 
-We practice professional Python. In each course that uses Python, we use a standard set of popular professional tools. 
-This course uses advanced tools such as Apache Kafka that requires **Python 3.11**. 
-You are encouraged to install and practice with multiple versions. 
-If space is an issue, we only need Python 3.11 for this course. 
+**Setup is critical.** Before project was initialized, I ensured that the needed software,dependencies and other resources are setup correctly. IDE used for project was VS Code.Libraries required for this project is listed in **requirments.txt.** file.
 
-Follow instructions at [pro-analytics-01](https://github.com/denisecase/pro-analytics-01), **Part 1: Set Up Machine & Sign up for GitHub**.
+### Note:
 
-**Setup is critical.** Follow all steps exactly and verify success before proceeding.  
-Missing or incomplete setup steps can make the course impossible to complete.
+1. Ensure that virtual environment is always activated for each step of the project.
+2. Make sure dependencies are installed and imported before using them.
 
-## Task 2. Initialize a Project
+## Task 1. Initialize a Project
 
-Once your machine is ready, you'll copy this template repository into your own GitHub account  
-and create your personal version of the project to run and explore. 
-Name it **buzzline-01-yourname** (replace `yourname` with something unique to you).  
+Once my machine was ready, I copied the template repository https://github.com/denisecase/buzzline-01-case, into my own GitHub account  to created a personal version of the project to run and explore. Project was cloned onto my machine to worked on. At certain points of the project, **git pull** and **git push** was used to keep the local project folder and that in my GitHub account in sync.
 
-Follow instructions at [pro-analytics-01](https://github.com/denisecase/pro-analytics-01), **Part 2: Initialize a Project**.
 This will get your project stored safely in the cloud - and ready for work on your machine. 
 
-## Task 3. Generate Streaming Data (Terminal 1)
+## Task 2. Generate Streaming Data (Terminal 1)
+A new producer module was created to customize the original producer module.
 
-Now we'll generate some streaming data. 
-By the way - you've done 90% of the hard work before we even look at code. 
-Congratulations!
+Changes made in the new producer module include;
+1. Changing the message interval.
+2. Customizing the buzzline message generated.
 
-In VS Code, open a terminal.
-Use the commands below to activate .venv, and run the generator as a module. 
-To learn more about why we run our Python file as a module, see [PYTHON-PKG-IMPORTS](docs/PYTHON-PKG-IMPORTS.md) 
+Next I generated some streaming data. 
 
+In VS Code, I opened a terminal in my root project folder and ran the producer.
+ 
 Windows PowerShell:
 
 ```shell
-.venv\Scripts\activate
-py -m producers.basic_producer_case
+py -m producers.basic_producer_arnold
 ```
 
-Mac/Linux:
-```zsh
-source .venv/bin/activate
-python3 -m producers.basic_producer_case
-```
-
-## Task 4. Monitor an Active Log File (Terminal 2)
+## Task 3. Monitor an Active Log File (Terminal 2)
 
 A common streaming task is monitoring a log file as it is being written. 
 This project has a consumer that reads and processes our own log file as log messages arrive. 
 
-In VS Code, open a NEW terminal in your root project folder. 
-Use the commands below to activate .venv, and run the file as a module. 
+In VS Code, I opened a NEW terminal in my root project folder. 
+Used the commands below to ran the file as a module. 
 
 Windows:
 ```shell
-.venv\Scripts\activate
-py -m consumers.basic_consumer_case
+py -m consumers.basic_consumer_arnold
 ```
 
-Mac/Linux:
-```zsh
-source .venv/bin/activate
-python3 -m consumers.basic_consumer_case
-```
+### Note:
+Both producer and consumer module can be terminated using Ctrl+C in the terminal where they are being executed.
 
 ## Save Space
 To save disk space, you can delete the .venv folder when not actively working on this project.
